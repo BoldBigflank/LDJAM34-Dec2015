@@ -10,7 +10,7 @@ public class TouchMove : MonoBehaviour {
     void Update() {
         CharacterController controller = GetComponent<CharacterController>();
         Vector3 forward = forwardCamera.transform.forward;
-        float curSpeed = (Input.touchCount > 0 || Input.GetMouseButton(0)) ? speed : 0.0f;
+        float curSpeed = (Input.touchCount > 0 || Input.GetKey(KeyCode.W)) ? speed : 0.0f;
         controller.SimpleMove(forward * curSpeed);
     }
 }
