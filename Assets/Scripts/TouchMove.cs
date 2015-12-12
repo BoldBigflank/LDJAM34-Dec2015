@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 public class TouchMove : MonoBehaviour {
-
+	
 	public float speed = 6.0F;
     public Camera forwardCamera;
 
