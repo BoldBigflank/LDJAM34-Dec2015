@@ -14,28 +14,28 @@ public class RemoteVisibility : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if( gameObject.layer != LayerMask.NameToLayer("Below") && 
-			transform.position.y < player.transform.position.y){
+			transform.position.y < player.transform.position.y - 0.5f){
 			if(isPlaceholder){
 				gameObject.SetActive(false);
 			} else {
-				SetLayer(LayerMask.NameToLayer("Below"));
+				SetLayer(gameObject, LayerMask.NameToLayer("Below"));
 			}
 
 		} else if ( gameObject.layer != LayerMask.NameToLayer("Above") && 
-			transform.position.y > player.transform.position.y ){
+			transform.position.y >= player.transform.position.y ){
 			if(isPlaceholder){
 				gameObject.SetActive(true);
 			} else {
-				SetLayer(LayerMask.NameToLayer("Above"));
+				SetLayer(gameObject, LayerMask.NameToLayer("Above"));
 			}
 
 		}
 	}
 
-	void SetLayer(int layer){
-		gameObject.layer = layer;
-		foreach(Transform child in transform){
-			child.gameObject.layer = layer;
+	void SetLayer(GameObject cur, int layer){
+		cur.layer = layer;
+		foreach(Transform child in cur.transform){
+			SetLayer(child.gameObject, layer);
 		}
 	}
 }

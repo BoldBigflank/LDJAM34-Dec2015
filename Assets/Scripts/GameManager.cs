@@ -7,28 +7,41 @@ public class GameManager : MonoBehaviour {
 	public static GameManager current;
 
 	public Text coinText;
-	public Vector3 startPosition = new Vector3 (-4.0F, 2.0F, -18.0F);
+	public Text timerText;
+	Vector3 startPosition;
 
 	public GameObject prison;
 	public GameObject ladder;
+	GameObject[] enemies;
+	GameObject[] coins;
 
 	GameObject player;
 	int coinCount;
+	float timer;
+	int caughtCount;
 
 
 	// Use this for initialization
 	void Start () {
 		Application.targetFrameRate = 30;
 		GameManager.current = this;
+		caughtCount = 0;
+		coins = GameObject.FindGameObjectsWithTag("Coin");
+		coinCount = coins.Length;
+		enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		player = GameObject.FindGameObjectWithTag("Player");
+		startPosition = player.transform.position;
+
+		NewGame();
 	}
 
 	void Awake () {
-		player = GameObject.FindGameObjectWithTag("Player");
-		coinCount = GameObject.FindGameObjectsWithTag("Coin").Length;
+
 	}
 	// Update is called once per frame
 	void Update () {
 		coinText.text = "Coins left: " + coinCount;
+		timerText.text = "" + timer % 60 + ":" + timer / 60;
 	}
 
 	public void CoinCollected(){
@@ -38,11 +51,28 @@ public class GameManager : MonoBehaviour {
 		if(coinCount <= 0) ladder.SetActive(true);
 	}
 
-	void StartTrigger(){
+
+	// The trigger at the door fires this
+	public void StartEnemies(){
+		Debug.Log("GameManager StartEnemies");
 		// After some time, start the enemy on her path
+		foreach(GameObject enemy in enemies){
+			Debug.Log("GameManager Setting enemy active");
+			enemy.SetActive(false);
+			enemy.SetActive(true);
+		}
 	}
 
 	public void Caught(){
+		caughtCount++;
+
+		// Freeze the player and enemies
+
+		// Play a sound
+
+
+		// Wait a few seconds
+
 		// Drop the player in prison
 		player.transform.position = Vector3.up * 4.0F + prison.transform.position;
 
@@ -54,9 +84,28 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	public void Retry(){
+		// Caught player wants to start again
+		player.transform.position = startPosition;
+		foreach(GameObject enemy in enemies) {
+			enemy.SetActive(false);
+
+		}
+	}
+
 	void NewGame(){
 		// Reset the coins
 		coinCount = GameObject.FindGameObjectsWithTag("Coin").Length;
+
+		foreach(GameObject coin in coins){
+			coin.SetActive(true);
+		}
+
+		// Reset the enemies
+		foreach(GameObject enemy in enemies){
+			enemy.SetActive(false);
+		}
+
 		// Reset the player
 		player.transform.position = startPosition;
 
