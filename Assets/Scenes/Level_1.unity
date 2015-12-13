@@ -994,7 +994,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150347248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4580207, y: 0, z: -1.4972014}
+  m_LocalPosition: {x: -2.458, y: 0, z: -1.497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -2714,7 +2714,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367806437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5816641, y: 0, z: -10.644454}
+  m_LocalPosition: {x: -1.582, y: 0, z: -10.644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -3146,7 +3146,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399937198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0437217, y: 0, z: -1.652534}
+  m_LocalPosition: {x: -4.044, y: 0, z: -1.653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -11855,7 +11855,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1241320649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9568334, y: 0, z: -1.6901841}
+  m_LocalPosition: {x: -4.957, y: 0, z: -1.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -15307,8 +15307,8 @@ MonoBehaviour:
   m_Initial:
     m_Position: 0
     m_Direction: 1
-    MaxDistance: 162.1396
-  Speed: 100
+    MaxDistance: 162.13971
+  Speed: 10
   Clamping: 0
   SetOrientation: 1
   Use2DOrientation: 0
@@ -15319,8 +15319,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613928894}
-  m_LocalRotation: {x: 0, y: 0.16187601, z: 0, w: 0.9868111}
-  m_LocalPosition: {x: -2.14, y: 0, z: -12.5}
+  m_LocalRotation: {x: 0, y: 0.9999798, z: 0, w: 0.006360086}
+  m_LocalPosition: {x: -1.69, y: 0, z: 2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 207743239}
@@ -16719,7 +16719,7 @@ MonoBehaviour:
   m_RestrictTo2D: 0
   m_Closed: 0
   m_AutoEndTangents: 1
-  m_Orientation: 1
+  m_Orientation: 2
   m_AutoHandleDistance: 0.39
   m_Tension: 0
   m_Continuity: 0
