@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour {
 
 	GameObject player;
 	int coinCount;
+	bool gameInProgress;
 	float timer;
 	int caughtCount;
 
 
 	// Use this for initialization
 	void Start () {
+		gameInProgress = false;
 		Application.targetFrameRate = 30;
 		GameManager.current = this;
 		caughtCount = 0;
@@ -40,8 +42,10 @@ public class GameManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		coinText.text = "Coins left: " + coinCount;
-		timerText.text = "" + timer % 60 + ":" + timer / 60;
+		if(gameInProgress) timer += Time.deltaTime;
+		coinText.text = coinCount > 0 ? "Coins left: " + coinCount : "Escape!";
+//		timerText.text = string.Format("{0:00}:{1:00}", timer % 60, Mathf.FloorToInt( timer ) / 60  );
+		timerText.text = Mathf.FloorToInt(timer/60).ToString("D2") + ":" + Mathf.FloorToInt(timer%60).ToString("D2");
 	}
 
 	public void CoinCollected(){
@@ -61,6 +65,7 @@ public class GameManager : MonoBehaviour {
 			enemy.SetActive(false);
 			enemy.SetActive(true);
 		}
+		gameInProgress = true;
 	}
 
 	public void Caught(){
@@ -91,6 +96,7 @@ public class GameManager : MonoBehaviour {
 			enemy.SetActive(false);
 
 		}
+		gameInProgress = false;
 	}
 
 	void NewGame(){
@@ -112,5 +118,8 @@ public class GameManager : MonoBehaviour {
 		// Reset the ladder
 		ladder.SetActive(false);
 
+		gameInProgress = false;
+		timer = 0.0f;
+		caughtCount = 0;
 	}
 }
