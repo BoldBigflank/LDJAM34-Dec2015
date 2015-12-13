@@ -6,7 +6,7 @@ public class Spin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		transform.rotation = Quaternion.Euler(0.0F, Random.Range(0, 360), 0.0F);
 	}
 	
 	// Update is called once per frame

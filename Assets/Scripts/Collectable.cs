@@ -19,7 +19,8 @@ public class Collectable : MonoBehaviour {
 			
 			// Remove me
 			// Increment score
-
+			GameManager.current.CoinCollected();
+			gameObject.SetActive(false);
 		}
 	}
 }
