@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	GameObject player;
 	int coinCount;
 	bool gameInProgress;
+	bool escaped;
 	float timer;
 	int caughtCount;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameInProgress = false;
+		escaped = false;
 		Application.targetFrameRate = 30;
 		GameManager.current = this;
 		caughtCount = 0;
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Escaped(){
+		escaped = true;
 		// Fly off
 		castCamera.GetComponent<SplineController>().Play();
 		castCamera.GetComponent<CopterSway>().enabled = false;
@@ -137,9 +140,17 @@ public class GameManager : MonoBehaviour {
 		castCamera.GetComponent<CopterSway>().enabled = true;
 
 		gameInProgress = false;
+		escaped = false;
 		timer = 0.0f;
 		caughtCount = 0;
 		resultText.text = "";
 
 	}
+
+	public void StartNewGame(){
+		if( escaped ){
+			NewGame();
+		}
+	}
+
 }
