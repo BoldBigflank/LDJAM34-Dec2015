@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using FluffyUnderware.Curvy;
+using FluffyUnderware.Curvy.Controllers;
 
 
 public class GameManager : MonoBehaviour {
@@ -8,10 +10,13 @@ public class GameManager : MonoBehaviour {
 
 	public Text coinText;
 	public Text timerText;
+	public Text resultText;
 	Vector3 startPosition;
 
 	public GameObject prison;
 	public GameObject ladder;
+	public GameObject castCamera;
+
 	GameObject[] enemies;
 	GameObject[] coins;
 
@@ -33,6 +38,8 @@ public class GameManager : MonoBehaviour {
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		player = GameObject.FindGameObjectWithTag("Player");
 		startPosition = player.transform.position;
+
+		castCamera.GetComponent<SplineController>().ResetOnStop = true;
 
 		NewGame();
 	}
@@ -84,9 +91,18 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	void Escaped(){
+	public void Escaped(){
 		// Fly off
+		castCamera.GetComponent<SplineController>().Play();
+		castCamera.GetComponent<CopterSway>().enabled = false;
 
+		// Show the result score
+		string result = "You escaped!\n";
+		result += "You took " + Mathf.FloorToInt(timer/60).ToString("D2") + ":" + Mathf.FloorToInt(timer%60).ToString("D2") + " to escape\n";
+		result += "You were caught " + caughtCount + " times\n";
+		result += "Press a button to try again";
+
+		resultText.text = result;
 	}
 
 	public void Retry(){
@@ -117,9 +133,13 @@ public class GameManager : MonoBehaviour {
 
 		// Reset the ladder
 		ladder.SetActive(false);
+		castCamera.GetComponent<SplineController>().Stop();
+		castCamera.GetComponent<CopterSway>().enabled = true;
 
 		gameInProgress = false;
 		timer = 0.0f;
 		caughtCount = 0;
+		resultText.text = "";
+
 	}
 }
