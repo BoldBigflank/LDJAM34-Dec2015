@@ -839,7 +839,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 99148480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.04, y: 0.97, z: 4.21}
+  m_LocalPosition: {x: 15.89, y: 0.97, z: -3.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -3906,7 +3906,7 @@ MonoBehaviour:
   m_FollowUpHeading: 2
   m_ConnectionSyncPosition: 0
   m_ConnectionSyncRotation: 0
-  m_Connection: {fileID: 0}
+  m_Connection: {fileID: 1578734214}
   FreeHandles: 0
   HandleScale: 1
 --- !u!4 &389147730
@@ -10560,7 +10560,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1067325694}
   m_LocalRotation: {x: 0, y: 0, z: 0.9057131, w: -0.42389128}
-  m_LocalPosition: {x: 7.41, y: 1.835, z: -3.81}
+  m_LocalPosition: {x: 9.37, y: 1.835, z: -11.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
@@ -17724,6 +17724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ControlPoints:
   - {fileID: 1828988584}
+  - {fileID: 389147729}
 --- !u!4 &1578734215
 Transform:
   m_ObjectHideFlags: 0
@@ -18153,7 +18154,7 @@ MonoBehaviour:
   m_PositionMode: 1
   m_InitialPosition: 0
   m_MoveMode: 2
-  m_Speed: 3
+  m_Speed: 2.5
   m_Clamping: 0
   m_PlayAutomatically: 0
   m_AdaptOnChange: 1
@@ -18197,7 +18198,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: FluffyUnderware.Curvy.CurvySplineMoveEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnEndReached:
@@ -18216,7 +18217,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613928894}
-  m_LocalRotation: {x: -0.108516864, y: -0.78644437, z: -0.22159185, w: 0.5662389}
+  m_LocalRotation: {x: -0.1378945, y: -0.7740172, z: -0.20484307, w: 0.58302814}
   m_LocalPosition: {x: 17.69, y: -2, z: -4.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -29912,8 +29913,8 @@ MonoBehaviour:
   m_EndContinuity: 0
   m_StartBias: 0
   m_EndBias: 0
-  m_FollowUp: {fileID: 0}
-  m_FollowUpHeading: 2
+  m_FollowUp: {fileID: 389147729}
+  m_FollowUpHeading: 1
   m_ConnectionSyncPosition: 0
   m_ConnectionSyncRotation: 0
   m_Connection: {fileID: 1578734214}
@@ -31529,7 +31530,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2055557124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.47, y: 2.312, z: -4.14}
+  m_LocalPosition: {x: 11.13, y: 2.312, z: -12.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1732868861}
